@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_responsive_arch/ui/size_information.dart';
-import 'package:flutter_responsive_arch/utils/device_screen_type.dart';
+import 'package:flutter_responsive_arch/ui/screen_breakpoints.dart';
+import 'package:flutter_responsive_arch/ui/screen_size_information.dart';
 
 class ResponsiveBuilder extends StatelessWidget {
   final Widget Function(
     BuildContext context,
-    SizeInformation sizeInformation,
+    ScreenSizeInformation sizeInformation,
   ) builder;
 
   ResponsiveBuilder({
@@ -16,7 +16,7 @@ class ResponsiveBuilder extends StatelessWidget {
   Widget build(BuildContext context) {
     return LayoutBuilder(builder: (context, boxConstraints) {
       var mediaQuery = MediaQuery.of(context);
-      var sizeInformation = SizeInformation(
+      var sizeInformation = ScreenSizeInformation(
         deviceScreenType: getDeviceScreenType(mediaQuery),
         screenSize: mediaQuery.size,
         widgetSize: Size(boxConstraints.maxWidth, boxConstraints.maxHeight),

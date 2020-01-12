@@ -5,10 +5,8 @@ import 'package:flutter_responsive_arch/widgets/app_drawer/app_drawer.dart';
 class AppDrawerMobilePortrait extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    var orientation = MediaQuery.of(context).orientation;
-
     return Container(
-      width: orientation == Orientation.portrait ? 250.0 : 75.0,
+      width: 250.0,
       decoration: kAppDrawerStyle,
       child: Column(
         children: <Widget>[
@@ -33,10 +31,8 @@ class AppDrawerMobilePortrait extends StatelessWidget {
 class AppDrawerMobileLandscape extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    var orientation = MediaQuery.of(context).orientation;
-
     return Container(
-      width: orientation == Orientation.portrait ? 250.0 : 75.0,
+      width: 75.0,
       decoration: kAppDrawerStyle,
       child: Column(
         children: <Widget>[

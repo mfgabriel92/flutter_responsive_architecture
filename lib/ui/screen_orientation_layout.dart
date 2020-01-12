@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 class ScreenOrientationLayout extends StatelessWidget {
-  final Widget portrait;
-  final Widget landscape;
+  final Widget Function(BuildContext) portrait;
+  final Widget Function(BuildContext) landscape;
 
   ScreenOrientationLayout({
     @required this.portrait,
@@ -11,12 +11,14 @@ class ScreenOrientationLayout extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var orientation = MediaQuery.of(context).orientation;
+    return LayoutBuilder(builder: (context, boxConstraints) {
+      var orientation = MediaQuery.of(context).orientation;
 
-    if (orientation == Orientation.landscape) {
-      return landscape ?? portrait;
-    }
+      if (orientation == Orientation.landscape) {
+        if (landscape != null) return landscape(context);
+      }
 
-    return portrait;
+      return portrait(context);
+    });
   }
 }

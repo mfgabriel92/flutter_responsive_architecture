@@ -1,25 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_responsive_arch/widgets/app_drawer_options/app_drawer_option_data_model.dart';
+import 'package:flutter_responsive_arch/widgets/base_model_widget.dart';
 
-class AppDrawerOptionsMobilePortrait extends StatelessWidget {
-  final String text;
-  final IconData icon;
-
-  AppDrawerOptionsMobilePortrait({
-    this.text,
-    this.icon,
-  });
-
+class AppDrawerOptionsMobilePortrait extends BaseModelWidget<AppDrawerOptionDataModel> {
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, AppDrawerOptionDataModel dataModel) {
     return Column(
       children: <Widget>[
         FlatButton(
           onPressed: () {},
           child: Row(
             children: <Widget>[
-              Icon(icon),
+              Icon(dataModel.icon),
               SizedBox(width: 28.0),
-              Text(text),
+              Text(dataModel.text),
             ],
           ),
         ),
@@ -28,18 +22,12 @@ class AppDrawerOptionsMobilePortrait extends StatelessWidget {
   }
 }
 
-class AppDrawerOptionsMobileLandscape extends StatelessWidget {
-  final IconData icon;
-
-  AppDrawerOptionsMobileLandscape({
-    this.icon,
-  });
-
+class AppDrawerOptionsMobileLandscape extends BaseModelWidget<AppDrawerOptionDataModel> {
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, AppDrawerOptionDataModel dataModel) {
     return IconButton(
       onPressed: () {},
-      icon: Icon(icon),
+      icon: Icon(dataModel.icon),
     );
   }
 }

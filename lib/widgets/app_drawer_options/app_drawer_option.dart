@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_responsive_arch/ui/screen_orientation_layout.dart';
 import 'package:flutter_responsive_arch/ui/screen_type_layout.dart';
+import 'package:flutter_responsive_arch/widgets/app_drawer_options/app_drawer_option_data_model.dart';
 import 'package:flutter_responsive_arch/widgets/app_drawer_options/app_drawer_options_mobile.dart';
 import 'package:flutter_responsive_arch/widgets/app_drawer_options/app_drawer_options_tablet.dart';
+import 'package:provider/provider.dart';
 
 class AppDrawerOption extends StatelessWidget {
   final IconData icon;
@@ -15,14 +17,17 @@ class AppDrawerOption extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ScreenTypeLayout(
-      mobile: ScreenOrientationLayout(
-        portrait: AppDrawerOptionsMobilePortrait(icon: icon, text: text),
-        landscape: AppDrawerOptionsMobileLandscape(icon: icon),
-      ),
-      tablet: ScreenOrientationLayout(
-        portrait: AppDrawerOptionsTabletPortrait(icon: icon),
-        landscape: AppDrawerOptionsTabletLandscape(icon: icon, text: text),
+    return Provider.value(
+      value: AppDrawerOptionDataModel(text: text, icon: icon),
+      child: ScreenTypeLayout(
+        mobile: ScreenOrientationLayout(
+          portrait: (context) => AppDrawerOptionsMobilePortrait(),
+          landscape: (context) => AppDrawerOptionsMobileLandscape(),
+        ),
+        tablet: ScreenOrientationLayout(
+          portrait: (context) => AppDrawerOptionsTabletPortrait(),
+          landscape: (context) => AppDrawerOptionsTabletLandscape(),
+        ),
       ),
     );
   }

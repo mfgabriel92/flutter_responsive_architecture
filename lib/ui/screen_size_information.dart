@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_responsive_arch/utils/device_screen_type.dart';
+import 'package:flutter_responsive_arch/ui/screen_breakpoints.dart';
 
-class SizeInformation {
-  final DeviceScreenType deviceScreenType;
+class ScreenSizeInformation {
+  final ScreenBreakpoints deviceScreenType;
   final Size screenSize;
   final Size widgetSize;
 
-  SizeInformation({
+  ScreenSizeInformation({
     this.deviceScreenType,
     this.screenSize,
     this.widgetSize,

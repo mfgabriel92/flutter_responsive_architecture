@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_responsive_arch/ui/responsive_builder.dart';
-import 'package:flutter_responsive_arch/utils/device_screen_type.dart';
+import 'package:flutter_responsive_arch/ui/screen_breakpoints.dart';
+
+import 'responsive_builder.dart';
 
 class ScreenTypeLayout extends StatelessWidget {
   final Widget desktop;
@@ -17,13 +18,13 @@ class ScreenTypeLayout extends StatelessWidget {
   Widget build(BuildContext context) {
     return ResponsiveBuilder(
       builder: (context, sizeInformation) {
-        if (sizeInformation.deviceScreenType == DeviceScreenType.desktop) {
+        if (sizeInformation.deviceScreenType == ScreenBreakpoints.desktop) {
           if (desktop != null) {
             return desktop;
           }
         }
 
-        if (sizeInformation.deviceScreenType == DeviceScreenType.tablet) {
+        if (sizeInformation.deviceScreenType == ScreenBreakpoints.tablet) {
           if (tablet != null) {
             return tablet;
           }

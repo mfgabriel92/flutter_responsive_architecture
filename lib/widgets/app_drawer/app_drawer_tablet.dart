@@ -29,6 +29,7 @@ class AppDrawerTabletLandscape extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      width: 230.0,
       decoration: kAppDrawerStyle,
       child: Column(
         children: <Widget>[

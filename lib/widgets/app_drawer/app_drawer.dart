@@ -27,12 +27,12 @@ class AppDrawer extends StatelessWidget {
   Widget build(BuildContext context) {
     return ScreenTypeLayout(
       mobile: ScreenOrientationLayout(
-        portrait: AppDrawerMobilePortrait(),
-        landscape: AppDrawerMobileLandscape(),
+        portrait: (context) => AppDrawerMobilePortrait(),
+        landscape: (context) => AppDrawerMobileLandscape(),
       ),
       tablet: ScreenOrientationLayout(
-        portrait: AppDrawerTabletPortrait(),
-        landscape: AppDrawerTabletLandscape(),
+        portrait: (context) => AppDrawerTabletPortrait(),
+        landscape: (context) => AppDrawerTabletLandscape(),
       ),
     );
   }
