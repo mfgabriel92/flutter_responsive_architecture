@@ -11,6 +11,11 @@ class ScreenSizeInformation {
     this.screenSize,
     this.widgetSize,
   });
+  
+  bool get isWatch => deviceScreenType == ScreenBreakpoints.watch;
+  bool get isMobile => deviceScreenType == ScreenBreakpoints.mobile;
+  bool get isTablet => deviceScreenType == ScreenBreakpoints.tablet;
+  bool get isDesktop => deviceScreenType == ScreenBreakpoints.desktop;
 
   @override
   String toString() {
